@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import pymysql
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-dto$ep4g#9(q++n(jxhnt394eem=@)y7s#zh+c1*_khpby1fh2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,13 +78,20 @@ WSGI_APPLICATION = 'DataStorage.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DataStorageApp',
-        'USER': 'root',
-        'PASSWORD': '245521748124',
-        'HOST': 'localhost',
-        'PORT': 3306,
-    }
+        'NAME': 'test',
+        'USER': '3VJg43JFiMfqFVu.root',
+        'PASSWORD': 'toXyxDDn8UdY6Gy1',
+        'HOST': 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
+        'PORT': 4000,
+
+        'OPTIONS': {
+            'ssl': {
+                'ca': '/etc/ssl/cert.pem'
+            }
+        },
 }
+}
+
 
 
 # Password validation
